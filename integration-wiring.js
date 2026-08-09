@@ -8,7 +8,7 @@
       card.id='bw-'+section.toLowerCase();
       const link=card.querySelector('.theory-link');
       if(link&&anchors[section]){
-        link.href='/theory.html#'+anchors[section];
+        link.href='/Year-8-Science-Guided-Course/theory.html#'+anchors[section];
         setText(link,'Open supporting theory');
         link.removeAttribute('aria-disabled');
         link.classList.remove('is-pending');
@@ -20,7 +20,7 @@
       card.id='video-'+section.toLowerCase();
       const link=card.querySelector('.theory');
       if(link&&anchors[section]){
-        link.href='/theory.html#'+anchors[section];
+        link.href='/Year-8-Science-Guided-Course/theory.html#'+anchors[section];
         setText(link,'Open supporting theory for '+section);
         link.removeAttribute('aria-disabled');
         link.classList.remove('pending');
@@ -41,7 +41,7 @@
   if(!document.querySelector('[data-course-home]')){
     const home=document.createElement('p');
     home.dataset.courseHome='';
-    home.innerHTML='<a href="/">&larr; Course home</a>';
+    home.innerHTML='<a href="/Year-8-Science-Guided-Course/">&larr; Course home</a>';
     document.querySelector('main')?.prepend(home);
   }
   observer.observe(document.body,observerOptions);
