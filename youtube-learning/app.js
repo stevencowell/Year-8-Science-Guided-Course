@@ -1,0 +1,27 @@
+(function(){
+  "use strict";
+  const cfg=window.YEAR8_SCIENCE_VIDEO_LIBRARY;
+  const blank=()=>({schemaVersion:"1.0.0",buildId:cfg.buildId,sourceContractDigest:cfg.sourceContractDigest,identity:{name:""},responses:{},updatedAt:null});
+  let state=blank(),timer;
+  try{const saved=JSON.parse(localStorage.getItem(cfg.storageKey));if(saved?.buildId===cfg.buildId&&saved.responses)state=saved}catch(_){ }
+  const root=document.querySelector("#clips"),status=document.querySelector("#save-status");
+  const escapeText=value=>String(value??"");
+  function save(){state.updatedAt=new Date().toISOString();try{localStorage.setItem(cfg.storageKey,JSON.stringify(state));status.textContent=`Saved on this device at ${new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})}`}catch(_){status.textContent="Could not save; print or back up now."}updateProgress()}
+  function queue(){status.textContent="Saving…";clearTimeout(timer);timer=setTimeout(save,180)}
+  function makeCard(clip){
+    const card=document.createElement("article");card.className="card";card.dataset.section=clip.sectionId;
+    card.innerHTML=`<span class="badge">In progress</span><p class="code">${escapeText(clip.sectionId)}</p><h3>${escapeText(clip.title)}</h3><p class="channel">${escapeText(clip.channel)} · validated ${cfg.validatedAt.slice(0,10)}</p><div class="video-shell"><button type="button" class="load-video">Load privacy-enhanced clip</button></div><a class="fallback" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=${clip.videoId}">Open directly on YouTube</a><p class="focus"><strong>Watch for:</strong> ${escapeText(clip.focus)}</p><label>${escapeText(clip.prompt)}<textarea rows="5"></textarea></label><p><a class="theory pending" aria-disabled="true">Theory link pending for ${clip.sectionId}</a></p><p class="destination"><strong>Evidence destination:</strong> ${escapeText(clip.evidenceDestination)}</p>`;
+    const text=card.querySelector("textarea");text.value=state.responses[clip.sectionId]||"";text.addEventListener("input",()=>{state.responses[clip.sectionId]=text.value;queue();refresh(card,text.value)});
+    card.querySelector(".load-video").addEventListener("click",()=>{const iframe=document.createElement("iframe");iframe.src=`https://www.youtube-nocookie.com/embed/${clip.videoId}?rel=0`;iframe.title=clip.title;iframe.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";iframe.allowFullscreen=true;iframe.tabIndex=0;const shell=card.querySelector(".video-shell");shell.tabIndex=-1;shell.setAttribute("aria-label",`Loaded video player: ${clip.title}`);shell.replaceChildren(iframe);shell.focus()});
+    if(cfg.theoryAnchorStatus==="final"&&!clip.theoryAnchor.startsWith("__")){const link=card.querySelector(".theory");link.href=clip.theoryAnchor;link.textContent="Review the relevant theory";link.classList.remove("pending");link.removeAttribute("aria-disabled")}
+    refresh(card,text.value);return card;
+  }
+  function refresh(card,value){const ready=value.trim().length>=20;card.classList.toggle("ready",ready);card.querySelector(".badge").textContent=ready?"Ready":"In progress"}
+  function render(){root.replaceChildren();[...new Set(cfg.clips.map(c=>c.module))].forEach(name=>{const section=document.createElement("section");section.className="module";const h=document.createElement("h2");h.textContent=name;const grid=document.createElement("div");grid.className="grid";cfg.clips.filter(c=>c.module===name).forEach(c=>grid.append(makeCard(c)));section.append(h,grid);root.append(section)});updateProgress()}
+  function updateProgress(){const done=cfg.clips.filter(c=>(state.responses[c.sectionId]||"").trim().length>=20).length;document.querySelector("#progress").textContent=`${done} of ${cfg.clips.length} responses ready`;document.querySelector("progress").value=done}
+  function download(name,content){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([content],{type:"application/json"}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+  const student=document.querySelector("#student-name");student.value=state.identity.name||"";student.addEventListener("input",()=>{state.identity.name=student.value;queue()});
+  document.querySelector("#print").addEventListener("click",()=>{save();window.print()});document.querySelector("#backup").addEventListener("click",()=>{save();download(`year-8-science-video-evidence-${new Date().toISOString().slice(0,10)}.json`,JSON.stringify(state,null,2))});
+  document.querySelector("#restore").addEventListener("change",async e=>{const file=e.target.files?.[0];if(!file)return;try{const restored=JSON.parse(await file.text());if(restored.buildId!==cfg.buildId||!restored.responses)throw new Error("This is not a current Year 8 Science video backup.");state=restored;localStorage.setItem(cfg.storageKey,JSON.stringify(state));student.value=state.identity?.name||"";render();status.textContent="Backup restored and saved on this device."}catch(err){status.textContent=err.message}finally{e.target.value=""}});
+  render();if(state.updatedAt)status.textContent=`Restored local responses saved ${new Date(state.updatedAt).toLocaleString()}`;
+})();

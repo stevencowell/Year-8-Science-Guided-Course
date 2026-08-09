@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Year 8 Science — Busy Work</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#activities">Skip to activities</a>
+  <header class="site-header">
+    <div class="wrap">
+      <p class="eyebrow">Year 8 NSW Science · local staged route</p>
+      <h1>Busy Work</h1>
+      <p class="lede">Fifteen short, revisitable activities connected to the taught science sections. Your answers save on this device as you work.</p>
+      <div class="privacy-note" role="note"><strong>Evidence note:</strong> this page prepares and prints learning evidence. It does not submit work to Google Classroom or Google Drive.</div>
+    </div>
+  </header>
+
+  <main class="wrap" id="main">
+    <section class="control-panel" aria-labelledby="record-heading">
+      <div>
+        <h2 id="record-heading">Student record</h2>
+        <label for="student-name">Student name</label>
+        <input id="student-name" autocomplete="name" placeholder="Enter your name">
+      </div>
+      <div class="progress-panel" aria-live="polite">
+        <strong id="progress-text">0 of 15 activities ready</strong>
+        <progress id="progress-bar" max="15" value="0">0 of 15</progress>
+        <span id="save-status">Ready</span>
+      </div>
+      <div class="toolbar" aria-label="Record tools">
+        <button type="button" id="print-record">Print / save PDF</button>
+        <button type="button" id="export-record" class="secondary">Back up answers</button>
+        <label class="button secondary file-button">Restore backup<input id="restore-record" type="file" accept="application/json,.json"></label>
+      </div>
+    </section>
+
+    <div id="activities" aria-live="polite"></div>
+  </main>
+
+  <template id="activity-template">
+    <article class="activity-card">
+      <div class="card-heading">
+        <div>
+          <p class="section-code"></p>
+          <h2></h2>
+        </div>
+        <span class="completion-badge">In progress</span>
+      </div>
+      <p class="instructions"></p>
+      <div class="activity-body"></div>
+      <label class="written-wrap"><span class="written-label"></span><textarea class="written-response" rows="4"></textarea></label>
+      <div class="card-actions">
+        <button type="button" class="check-activity">Check activity</button>
+        <a class="theory-link is-pending" aria-disabled="true">Theory link pending</a>
+      </div>
+      <div class="activity-feedback" role="status" aria-live="polite"></div>
+      <p class="evidence-destination"><strong>Evidence destination:</strong> <span></span></p>
+    </article>
+  </template>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+<script src="/integration-wiring.js"></script></body>
+</html>

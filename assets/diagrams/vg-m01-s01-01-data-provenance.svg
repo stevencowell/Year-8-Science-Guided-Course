@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">From source to trustworthy use</title><desc id="desc">A source creates records; provenance notes let a scientist judge suitability, limits, privacy and access before use.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#334155"/></marker><style>.t{font:700 50px Arial,sans-serif;fill:#102a43}.s{font:700 42px Arial,sans-serif;fill:#102a43}.b{font:400 34px Arial,sans-serif;fill:#243b53}.n{font:600 32px Arial,sans-serif;fill:#334e68}.box{fill:#fff;stroke:#334155;stroke-width:5}.arrow{fill:none;stroke:#334155;stroke-width:7;marker-end:url(#arrow)}.white{fill:#fff}</style></defs>
+<rect width="1600" height="900" fill="#f8fbfd"/>
+<rect width="1600" height="18" fill="#176B87"/>
+<text x="80" y="105" text-anchor="start" class="t">From source to trustworthy use</text>
+<rect x="80" y="235" width="336" height="300" rx="28" class="box"/>
+<circle cx="135" cy="293" r="31" fill="#176B87"/>
+<text x="135" y="304" text-anchor="middle" class="n white">1</text>
+<text x="110" y="380" text-anchor="start" class="s">Source</text>
+<text x="110" y="440" text-anchor="start" class="n">What collected it?</text>
+<line x1="422" y1="385" x2="440" y2="385" class="arrow"/>
+<rect x="448" y="235" width="336" height="300" rx="28" class="box"/>
+<circle cx="503" cy="293" r="31" fill="#176B87"/>
+<text x="503" y="304" text-anchor="middle" class="n white">2</text>
+<text x="478" y="380" text-anchor="start" class="s">Dataset</text>
+<text x="478" y="440" text-anchor="start" class="n">Organised records</text>
+<line x1="790" y1="385" x2="808" y2="385" class="arrow"/>
+<rect x="816" y="235" width="336" height="300" rx="28" class="box"/>
+<circle cx="871" cy="293" r="31" fill="#176B87"/>
+<text x="871" y="304" text-anchor="middle" class="n white">3</text>
+<text x="846" y="380" text-anchor="start" class="s">Provenance</text>
+<text x="846" y="440" text-anchor="start" class="n">Origin </text>
+<text x="846" y="483" text-anchor="start" class="n"> method </text>
+<text x="846" y="526" text-anchor="start" class="n"> limits</text>
+<line x1="1158" y1="385" x2="1176" y2="385" class="arrow"/>
+<rect x="1184" y="235" width="336" height="300" rx="28" class="box"/>
+<circle cx="1239" cy="293" r="31" fill="#176B87"/>
+<text x="1239" y="304" text-anchor="middle" class="n white">4</text>
+<text x="1214" y="380" text-anchor="start" class="s">Decision</text>
+<text x="1214" y="440" text-anchor="start" class="n">Suitable and safe?</text>
+</svg>

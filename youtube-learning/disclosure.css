@@ -1,0 +1,24 @@
+.submission-note {
+  margin: 1.4rem 0 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid #d8be78;
+  border-left: 5px solid var(--accent);
+  border-radius: 12px;
+  background: #fff9e9;
+}
+
+.submission-note h2 {
+  margin: 0 0 .35rem;
+  font-size: 1.15rem;
+}
+
+.submission-note p {
+  margin: 0;
+  max-width: 82ch;
+}
+
+@media print {
+  .submission-note {
+    display: none !important;
+  }
+}
