@@ -26,5 +26,8 @@
     card.className = 'theory-media-wrap';
     card.innerHTML = `<figure class="theory-media-card"><a href="${root}${item.file}" target="_blank" rel="noopener" aria-label="Open larger: ${item.alt}"><span class="theory-media-frame"><img src="${root}${item.file}" alt="${item.alt}" style="transform:translateX(-${item.panel * 33.333}%);"></span></a><figcaption><span>${item.label}</span>${item.caption}<a href="${root}${item.file}" target="_blank" rel="noopener">Open larger</a></figcaption></figure>`;
     firstTeachingBlock.after(card);
+    // The original diagram set has been superseded by the contextual photo card.
+    // Keep the theory reading page focused instead of stacking a second worksheet-style visual.
+    article.querySelectorAll(':scope > figure').forEach((figure) => figure.remove());
   });
 })();
