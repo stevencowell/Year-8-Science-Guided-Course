@@ -38,7 +38,7 @@
   }
 
   function queueSave() {
-    saveStatus.textContent = "SavingÃ¢â‚¬Â¦";
+    saveStatus.textContent = "Saving…";
     clearTimeout(saveTimer);
     saveTimer = setTimeout(saveState, 180);
   }
@@ -227,7 +227,7 @@
     const card = fragment.querySelector(".activity-card");
     card.dataset.activityId = activity.id;
     card.id = safeId(activity.id);
-    card.querySelector(".section-code").textContent = `${activity.sectionId} Ã‚Â· ${activity.id}`;
+    card.querySelector(".section-code").textContent = `${activity.sectionId} · ${activity.id}`;
     card.querySelector("h2").textContent = activity.title;
     card.querySelector(".instructions").textContent = activity.instructions;
     card.querySelector(".evidence-destination span").textContent = activity.evidenceDestination;
@@ -273,7 +273,7 @@
   }
 
   function normalise(value) {
-    return String(value ?? "").trim().toLowerCase().replace(/[Ã¢â‚¬â€œÃ¢â‚¬â€]/g, "-").replace(/\s+/g, " ");
+    return String(value ?? "").trim().toLowerCase().replace(/[–—]/g, "-").replace(/\s+/g, " ");
   }
 
   function completionFor(activity, card) {

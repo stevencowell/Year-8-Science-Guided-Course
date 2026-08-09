@@ -71,9 +71,9 @@ window.YEAR8_SCIENCE_BUSY_WORK = {
       theoryAnchor: "/Year-8-Science-Guided-Course/modules/y8s-m02/#theory-m02-s01-system-interrelationships",
       instructions: "Complete the information flows between systems, then explain why the systems are interdependent.",
       rows: [
-        { label: "Respiratory Ã¢â€ â€™ circulatory", answer: "oxygen", options: ["Choose", "oxygen", "digested nutrients", "nitrogenous wastes"] },
-        { label: "Digestive Ã¢â€ â€™ circulatory", answer: "digested nutrients", options: ["Choose", "oxygen", "digested nutrients", "nitrogenous wastes"] },
-        { label: "Circulatory Ã¢â€ â€™ excretory", answer: "nitrogenous wastes", options: ["Choose", "oxygen", "digested nutrients", "nitrogenous wastes"] }
+        { label: "Respiratory → circulatory", answer: "oxygen", options: ["Choose", "oxygen", "digested nutrients", "nitrogenous wastes"] },
+        { label: "Digestive → circulatory", answer: "digested nutrients", options: ["Choose", "oxygen", "digested nutrients", "nitrogenous wastes"] },
+        { label: "Circulatory → excretory", answer: "nitrogenous wastes", options: ["Choose", "oxygen", "digested nutrients", "nitrogenous wastes"] }
       ],
       writtenPrompt: "Explain one consequence if a component in this exchange network cannot perform its function."
     },
@@ -139,7 +139,7 @@ window.YEAR8_SCIENCE_BUSY_WORK = {
         { label: "Atomic number of oxygen", answer: "8", options: ["Choose", "6", "8", "10", "16"] },
         { label: "Neutral oxygen atom: number of electrons", answer: "8", options: ["Choose", "6", "8", "10", "16"] },
         { label: "Element in the same group as lithium", answer: "sodium", options: ["Choose", "beryllium", "sodium", "neon", "chlorine"] },
-        { label: "Elements present in HÃ¢â€šâ€šO", answer: "hydrogen and oxygen", options: ["Choose", "hydrogen only", "oxygen only", "hydrogen and oxygen", "helium and oxygen"] }
+        { label: "Elements present in H₂O", answer: "hydrogen and oxygen", options: ["Choose", "hydrogen only", "oxygen only", "hydrogen and oxygen", "helium and oxygen"] }
       ],
       writtenPrompt: "Describe one pattern that can be inferred from the positions of lithium and sodium, while avoiding a claim that position alone proves every property."
     },
@@ -150,7 +150,7 @@ window.YEAR8_SCIENCE_BUSY_WORK = {
       theoryAnchor: "/Year-8-Science-Guided-Course/modules/y8s-m04/#theory-m04-s01-energy-spread-and-diagrams",
       instructions: "Complete a representation of energy changes in a solar-battery-light system.",
       rows: [
-        { label: "Sun Ã¢â€ â€™ solar panel", answer: "radiant transfer", options: ["Choose", "radiant transfer", "conduction", "chemical store"] },
+        { label: "Sun → solar panel", answer: "radiant transfer", options: ["Choose", "radiant transfer", "conduction", "chemical store"] },
         { label: "Solar panel output", answer: "electrical energy", options: ["Choose", "electrical energy", "elastic energy", "nuclear energy"] },
         { label: "Battery storage", answer: "chemical store", options: ["Choose", "kinetic store", "chemical store", "gravitational store"] },
         { label: "Light output", answer: "radiant energy", options: ["Choose", "radiant energy", "elastic energy", "gravitational energy"] }
