@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Year 8 Science — Busy Work</title>
+  <title>Year 8 Science ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Busy Work</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#activities">Skip to activities</a>
   <header class="site-header">
     <div class="wrap">
-      <p class="eyebrow">Year 8 NSW Science · local staged route</p>
-      <h1>Busy Work</h1>
-      <p class="lede">Fifteen short, revisitable activities connected to the taught science sections. Your answers save on this device as you work.</p>
-      <div class="privacy-note" role="note"><strong>Evidence note:</strong> this page prepares and prints learning evidence. It does not submit work to Google Classroom or Google Drive.</div>
+      <p class="eyebrow">YEAR 8 SCIENCE · PRACTICE PATHWAY</p>
+      <h1>Do something useful with what you have learned.</h1>
+      <p class="lede">Choose one activity, do one clear job, then check it and move on. Your answers save on this device as you work.</p>
+      <div class="hero-actions"><a class="button" href="#activity-workspace">Start the next activity</a><a class="button secondary" href="../theory.html">Review theory first</a></div>
+      <div class="privacy-note" role="note"><strong>Saved on this device:</strong> this is useful practice evidence, not a cloud submission or a Google Classroom turn-in.</div>
     </div>
   </header>
 
@@ -36,7 +37,11 @@
       </div>
     </section>
 
-    <div id="activities" aria-live="polite"></div>
+    <section class="activity-library" aria-labelledby="library-heading">
+      <div class="library-heading"><div><p class="eyebrow">ACTIVITY LIBRARY</p><h2 id="library-heading">Fifteen science practice activities</h2><p>Each activity opens on its own. Choose a module, then focus on the next useful task.</p></div><p id="library-progress" aria-live="polite"></p></div>
+      <div id="activity-picker" class="activity-picker" aria-label="Choose a science practice activity"></div>
+    </section>
+    <section id="activity-workspace" class="activity-workspace" aria-live="polite"><div id="activities"></div></section>
   </main>
 
   <template id="activity-template">

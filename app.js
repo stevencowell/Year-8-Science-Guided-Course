@@ -1,1 +1,20 @@
-document.querySelectorAll('textarea[data-storage-key]').forEach(area=>{const key=area.dataset.storageKey;area.value=localStorage.getItem(key)||'';area.addEventListener('input',()=>localStorage.setItem(key,area.value))});document.querySelectorAll('.check-answer').forEach(button=>button.addEventListener('click',()=>{const selected=document.querySelector('input[name="'+CSS.escape(button.dataset.name)+'"]:checked');const feedback=button.nextElementSibling;if(!selected){feedback.textContent='Choose one response first.';return}feedback.textContent=Number(selected.value)===Number(button.dataset.correct)?'Correct. '+button.dataset.rationale:'Not yet. Re-read the theory directly above and try again.'}));
+document.querySelectorAll('textarea[data-storage-key]').forEach(area=>{
+  const key=area.dataset.storageKey;
+  area.value=localStorage.getItem(key)||'';
+  area.addEventListener('input',()=>localStorage.setItem(key,area.value));
+});
+
+document.querySelectorAll('.check-answer').forEach(button=>button.addEventListener('click',()=>{
+  const selected=document.querySelector('input[name="'+CSS.escape(button.dataset.name)+'"]:checked');
+  const feedback=button.nextElementSibling;
+  if(!selected){feedback.textContent='Choose one response first.';return;}
+  feedback.textContent=Number(selected.value)===Number(button.dataset.correct)?'Correct. '+button.dataset.rationale:'Not yet. Re-read the theory directly above and try again.';
+}));
+
+document.querySelectorAll('[data-student-key]').forEach(input=>{
+  const key=input.dataset.studentKey;
+  input.value=localStorage.getItem(key)||'';
+  input.addEventListener('input',()=>localStorage.setItem(key,input.value));
+});
+
+document.querySelectorAll('[data-print-page]').forEach(button=>button.addEventListener('click',()=>window.print()));

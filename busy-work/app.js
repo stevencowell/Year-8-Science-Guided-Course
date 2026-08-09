@@ -38,7 +38,7 @@
   }
 
   function queueSave() {
-    saveStatus.textContent = "Saving…";
+    saveStatus.textContent = "SavingÃ¢â‚¬Â¦";
     clearTimeout(saveTimer);
     saveTimer = setTimeout(saveState, 180);
   }
@@ -227,7 +227,7 @@
     const card = fragment.querySelector(".activity-card");
     card.dataset.activityId = activity.id;
     card.id = safeId(activity.id);
-    card.querySelector(".section-code").textContent = `${activity.sectionId} · ${activity.id}`;
+    card.querySelector(".section-code").textContent = `${activity.sectionId} Ã‚Â· ${activity.id}`;
     card.querySelector("h2").textContent = activity.title;
     card.querySelector(".instructions").textContent = activity.instructions;
     card.querySelector(".evidence-destination span").textContent = activity.evidenceDestination;
@@ -273,7 +273,7 @@
   }
 
   function normalise(value) {
-    return String(value ?? "").trim().toLowerCase().replace(/[–—]/g, "-").replace(/\s+/g, " ");
+    return String(value ?? "").trim().toLowerCase().replace(/[Ã¢â‚¬â€œÃ¢â‚¬â€]/g, "-").replace(/\s+/g, " ");
   }
 
   function completionFor(activity, card) {
@@ -314,23 +314,33 @@
     }).length;
     document.querySelector("#progress-text").textContent = `${complete} of ${config.activities.length} activities ready`;
     document.querySelector("#progress-bar").value = complete;
+    const libraryProgress = document.querySelector("#library-progress");
+    if (libraryProgress) libraryProgress.textContent = `${complete} of ${config.activities.length} activities ready`;
   }
 
   function renderAll() {
     activityRoot.replaceChildren();
+    const picker = document.querySelector("#activity-picker");
+    picker.replaceChildren();
+    let activeId = location.hash.replace("#", "");
+    if (!config.activities.some(activity => safeId(activity.id) === activeId)) activeId = safeId(config.activities[0].id);
     const modules = [...new Set(config.activities.map(activity => activity.module))];
     modules.forEach(moduleName => {
-      const group = document.createElement("section");
-      group.className = "module-group";
-      const heading = document.createElement("h2");
-      heading.className = "module-heading";
-      heading.textContent = moduleName;
-      const grid = document.createElement("div");
-      grid.className = "activity-grid";
-      config.activities.filter(activity => activity.module === moduleName).forEach(activity => grid.append(renderActivity(activity)));
-      group.append(heading, grid);
-      activityRoot.append(group);
+      const group = document.createElement("section"); group.className = "picker-module";
+      const heading = document.createElement("h3"); heading.textContent = moduleName; group.append(heading);
+      const list = document.createElement("div"); list.className = "picker-list";
+      config.activities.filter(activity => activity.module === moduleName).forEach(activity => {
+        const button = document.createElement("a"); const id = safeId(activity.id); button.href = `#${id}`; button.className = "activity-choice";
+        button.dataset.target = id; button.innerHTML = `<span>${activity.sectionId}</span><strong>${activity.title}</strong><small>${activity.mechanic.replace(/-/g, " ")}</small>`;
+        list.append(button);
+      });
+      group.append(list); picker.append(group);
     });
+    const workspace = document.createElement("div"); workspace.className = "single-activity";
+    const selected = config.activities.find(activity => safeId(activity.id) === activeId);
+    workspace.append(renderActivity(selected)); activityRoot.append(workspace);
+    picker.querySelector(`[data-target="${activeId}"]`)?.classList.add("selected");
+    picker.addEventListener("click", event => { const choice = event.target.closest(".activity-choice"); if (!choice) return; event.preventDefault(); location.hash = choice.dataset.target; renderAll(); document.querySelector("#activity-workspace").scrollIntoView({ behavior: "smooth", block: "start" }); }, { once: true });
     updateProgress();
   }
 

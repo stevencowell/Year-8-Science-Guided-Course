@@ -28,7 +28,7 @@ window.YEAR8_SCIENCE_BUSY_WORK = {
       id: "BW-M01-S01", sectionId: "M01-S01", module: "Data science 1 - part A",
       title: "Source trail audit", mechanic: "source-audit",
       evidenceDestination: "Data-source and provenance record",
-      theoryAnchor: "../theory.html#theory-m01-s01-provenance-safe-use",
+      theoryAnchor: "/Year-8-Science-Guided-Course/modules/y8s-m01/#theory-m01-s01-provenance-safe-use",
       instructions: "Inspect each information source. Record what it contains, who produced it and whether it is safe and suitable for the stated science purpose.",
       rows: [
         { label: "Bureau weather dataset with date and station metadata", answer: "usable", feedback: "Usable when the station, date range and units are retained." },
@@ -41,7 +41,7 @@ window.YEAR8_SCIENCE_BUSY_WORK = {
       id: "BW-M01-S02", sectionId: "M01-S02", module: "Data science 1 - part A",
       title: "Question and variable builder", mechanic: "variable-map",
       evidenceDestination: "Question, variables and dataset collection record",
-      theoryAnchor: "../theory.html#theory-m01-s02-variables-data-types",
+      theoryAnchor: "/Year-8-Science-Guided-Course/modules/y8s-m01/#theory-m01-s02-variables-data-types",
       instructions: "Use the supplied scenario only; do not design a practical method. A computer model is run with different input temperatures and records the predicted rate of a process.",
       fields: [
         { key: "question", label: "Write an investigable question that connects the two variables.", type: "textarea" },
@@ -54,7 +54,7 @@ window.YEAR8_SCIENCE_BUSY_WORK = {
       id: "BW-M01-S03", sectionId: "M01-S03", module: "Data science 1 - part A",
       title: "Dataset decision desk", mechanic: "dataset-analysis",
       evidenceDestination: "Processed representation, conclusion and problem-solving justification",
-      theoryAnchor: "../theory.html#theory-m01-s03-patterns-conclusions",
+      theoryAnchor: "/Year-8-Science-Guided-Course/modules/y8s-m01/#theory-m01-s03-patterns-conclusions",
       instructions: "Analyse this synthetic simulation dataset: input 1, 2, 3, 4, 5 produces output 12, 21, 31, 42, 52.",
       data: [[1,12],[2,21],[3,31],[4,42],[5,52]],
       fields: [
@@ -68,12 +68,12 @@ window.YEAR8_SCIENCE_BUSY_WORK = {
       id: "BW-M02-S01", sectionId: "M02-S01", module: "Living systems",
       title: "Body-system exchange network", mechanic: "network-match",
       evidenceDestination: "Annotated system representation and interrelationship explanation",
-      theoryAnchor: "../theory.html#theory-m02-s01-system-interrelationships",
+      theoryAnchor: "/Year-8-Science-Guided-Course/modules/y8s-m02/#theory-m02-s01-system-interrelationships",
       instructions: "Complete the information flows between systems, then explain why the systems are interdependent.",
       rows: [
-        { label: "Respiratory → circulatory", answer: "oxygen", options: ["Choose", "oxygen", "digested nutrients", "nitrogenous wastes"] },
-        { label: "Digestive → circulatory", answer: "digested nutrients", options: ["Choose", "oxygen", "digested nutrients", "nitrogenous wastes"] },
-        { label: "Circulatory → excretory", answer: "nitrogenous wastes", options: ["Choose", "oxygen", "digested nutrients", "nitrogenous wastes"] }
+        { label: "Respiratory Ã¢â€ â€™ circulatory", answer: "oxygen", options: ["Choose", "oxygen", "digested nutrients", "nitrogenous wastes"] },
+        { label: "Digestive Ã¢â€ â€™ circulatory", answer: "digested nutrients", options: ["Choose", "oxygen", "digested nutrients", "nitrogenous wastes"] },
+        { label: "Circulatory Ã¢â€ â€™ excretory", answer: "nitrogenous wastes", options: ["Choose", "oxygen", "digested nutrients", "nitrogenous wastes"] }
       ],
       writtenPrompt: "Explain one consequence if a component in this exchange network cannot perform its function."
     },
@@ -81,7 +81,7 @@ window.YEAR8_SCIENCE_BUSY_WORK = {
       id: "BW-M02-S02", sectionId: "M02-S02", module: "Living systems",
       title: "Plant structure-function match", mechanic: "matching",
       evidenceDestination: "Plant structure-function comparison and communicated explanation",
-      theoryAnchor: "../theory.html#theory-m02-s02-specialised-tissues",
+      theoryAnchor: "/Year-8-Science-Guided-Course/modules/y8s-m02/#theory-m02-s02-specialised-tissues",
       instructions: "Match each plant structure to its main function, then compare two structures.",
       rows: [
         { label: "Roots", answer: "absorb water and mineral ions", options: ["Choose", "absorb water and mineral ions", "transport sugars", "transport water and mineral ions", "capture light and exchange gases"] },
@@ -95,7 +95,7 @@ window.YEAR8_SCIENCE_BUSY_WORK = {
       id: "BW-M02-S03", sectionId: "M02-S03", module: "Living systems",
       title: "Ecosystem pathway and population evidence", mechanic: "ecosystem-path",
       evidenceDestination: "Food-web or energy-pyramid representation and population-data conclusion",
-      theoryAnchor: "../theory.html#theory-m02-s03-populations-extinction",
+      theoryAnchor: "/Year-8-Science-Guided-Course/modules/y8s-m02/#theory-m02-s03-populations-extinction",
       instructions: "Build a valid energy pathway and interpret the supplied fictional population data.",
       pathway: ["Sun", "grass", "grasshopper", "frog"],
       data: [[1,80,5],[2,72,8],[3,61,12],[4,49,17]],
@@ -105,7 +105,7 @@ window.YEAR8_SCIENCE_BUSY_WORK = {
       id: "BW-M03-S01", sectionId: "M03-S01", module: "Periodic table and atomic structure",
       title: "Matter classification and use board", mechanic: "classification",
       evidenceDestination: "Property/classification table and evidence-based use recommendation",
-      theoryAnchor: "../theory.html#theory-m03-s01-selecting-materials",
+      theoryAnchor: "/Year-8-Science-Guided-Course/modules/y8s-m03/#theory-m03-s01-selecting-materials",
       instructions: "Classify each material, then connect a stated property to a suitable use.",
       rows: [
         { label: "Copper", answer: "metal", options: ["Choose", "metal", "non-metal", "alloy", "compound"] },
@@ -119,7 +119,7 @@ window.YEAR8_SCIENCE_BUSY_WORK = {
       id: "BW-M03-S02", sectionId: "M03-S02", module: "Periodic table and atomic structure",
       title: "Atomic model evidence timeline", mechanic: "timeline",
       evidenceDestination: "Annotated atomic model and model-change explanation",
-      theoryAnchor: "../theory.html#theory-m03-s02-changing-scientific-models",
+      theoryAnchor: "/Year-8-Science-Guided-Course/modules/y8s-m03/#theory-m03-s02-changing-scientific-models",
       instructions: "Place the model descriptions in historical order, then explain why scientific models change.",
       rows: [
         { label: "Solid-sphere model", answer: "1", options: ["Choose", "1", "2", "3", "4"] },
@@ -133,13 +133,13 @@ window.YEAR8_SCIENCE_BUSY_WORK = {
       id: "BW-M03-S03", sectionId: "M03-S03", module: "Periodic table and atomic structure",
       title: "First-18 periodic pattern labelling", mechanic: "periodic-pattern",
       evidenceDestination: "Periodic-pattern analysis and element/compound interpretation",
-      theoryAnchor: "../theory.html#theory-m03-s03-periods-groups-patterns",
+      theoryAnchor: "/Year-8-Science-Guided-Course/modules/y8s-m03/#theory-m03-s03-periods-groups-patterns",
       instructions: "Use periodic information for the first 18 elements to complete each interpretation.",
       rows: [
         { label: "Atomic number of oxygen", answer: "8", options: ["Choose", "6", "8", "10", "16"] },
         { label: "Neutral oxygen atom: number of electrons", answer: "8", options: ["Choose", "6", "8", "10", "16"] },
         { label: "Element in the same group as lithium", answer: "sodium", options: ["Choose", "beryllium", "sodium", "neon", "chlorine"] },
-        { label: "Elements present in H₂O", answer: "hydrogen and oxygen", options: ["Choose", "hydrogen only", "oxygen only", "hydrogen and oxygen", "helium and oxygen"] }
+        { label: "Elements present in HÃ¢â€šâ€šO", answer: "hydrogen and oxygen", options: ["Choose", "hydrogen only", "oxygen only", "hydrogen and oxygen", "helium and oxygen"] }
       ],
       writtenPrompt: "Describe one pattern that can be inferred from the positions of lithium and sodium, while avoiding a claim that position alone proves every property."
     },
@@ -147,10 +147,10 @@ window.YEAR8_SCIENCE_BUSY_WORK = {
       id: "BW-M04-S01", sectionId: "M04-S01", module: "Change",
       title: "Energy system chain builder", mechanic: "energy-chain",
       evidenceDestination: "Energy-system representation and transfer/transformation explanation",
-      theoryAnchor: "../theory.html#theory-m04-s01-energy-spread-and-diagrams",
+      theoryAnchor: "/Year-8-Science-Guided-Course/modules/y8s-m04/#theory-m04-s01-energy-spread-and-diagrams",
       instructions: "Complete a representation of energy changes in a solar-battery-light system.",
       rows: [
-        { label: "Sun → solar panel", answer: "radiant transfer", options: ["Choose", "radiant transfer", "conduction", "chemical store"] },
+        { label: "Sun Ã¢â€ â€™ solar panel", answer: "radiant transfer", options: ["Choose", "radiant transfer", "conduction", "chemical store"] },
         { label: "Solar panel output", answer: "electrical energy", options: ["Choose", "electrical energy", "elastic energy", "nuclear energy"] },
         { label: "Battery storage", answer: "chemical store", options: ["Choose", "kinetic store", "chemical store", "gravitational store"] },
         { label: "Light output", answer: "radiant energy", options: ["Choose", "radiant energy", "elastic energy", "gravitational energy"] }
@@ -161,7 +161,7 @@ window.YEAR8_SCIENCE_BUSY_WORK = {
       id: "BW-M04-S02", sectionId: "M04-S02", module: "Change",
       title: "Change evidence sorter", mechanic: "evidence-sort",
       evidenceDestination: "Observation record, word-equation explanation and investigation reflection",
-      theoryAnchor: "../theory.html#theory-m04-s02-conservation-and-evidence-quality",
+      theoryAnchor: "/Year-8-Science-Guided-Course/modules/y8s-m04/#theory-m04-s02-conservation-and-evidence-quality",
       instructions: "Classify each described change from evidence only. No practical procedure is supplied or implied.",
       rows: [
         { label: "Ice melts but remains water", answer: "physical", options: ["Choose", "physical", "chemical"] },
@@ -178,7 +178,7 @@ window.YEAR8_SCIENCE_BUSY_WORK = {
       id: "BW-M04-S03", sectionId: "M04-S03", module: "Change",
       title: "Plate-evidence claim desk", mechanic: "cer",
       evidenceDestination: "Geological model and claim-evidence-reasoning response",
-      theoryAnchor: "../theory.html#theory-m04-s03-plate-evidence-models",
+      theoryAnchor: "/Year-8-Science-Guided-Course/modules/y8s-m04/#theory-m04-s03-plate-evidence-models",
       instructions: "Use only the supplied observations: matching magnetic stripes occur on both sides of a mid-ocean ridge; earthquake and volcano locations cluster in narrow global belts.",
       rows: [
         { label: "Evidence that supports movement at the ridge", answer: "matching magnetic stripes", options: ["Choose", "matching magnetic stripes", "the ocean is blue", "all rocks are the same age"] },
@@ -190,7 +190,7 @@ window.YEAR8_SCIENCE_BUSY_WORK = {
       id: "BW-M05-S01", sectionId: "M05-S01", module: "Data science 1 - part B and depth study",
       title: "Scientific model audit", mechanic: "model-audit",
       evidenceDestination: "Model components, evidence and limitation analysis",
-      theoryAnchor: "../theory.html#theory-m05-s01-limitations-appropriate-use",
+      theoryAnchor: "/Year-8-Science-Guided-Course/modules/y8s-m05/#theory-m05-s01-limitations-appropriate-use",
       instructions: "Audit a simplified rainfall-runoff model that uses rainfall and ground-cover inputs to predict runoff.",
       rows: [
         { label: "Rainfall and ground cover", answer: "inputs", options: ["Choose", "inputs", "output", "limitation"] },
@@ -203,7 +203,7 @@ window.YEAR8_SCIENCE_BUSY_WORK = {
       id: "BW-M05-S02", sectionId: "M05-S02", module: "Data science 1 - part B and depth study",
       title: "Simulation prediction challenge", mechanic: "simulation",
       evidenceDestination: "Prediction, parameter-change and model-evaluation response",
-      theoryAnchor: "../theory.html#theory-m05-s02-evaluating-applications",
+      theoryAnchor: "/Year-8-Science-Guided-Course/modules/y8s-m05/#theory-m05-s02-evaluating-applications",
       instructions: "Change the model parameter, predict the output, run the simulation and evaluate the result. The simulation is illustrative, not a real-world forecast.",
       writtenPrompt: "Compare your prediction with the simulated output and explain one reason the model should not be treated as certainty."
     },
@@ -211,7 +211,7 @@ window.YEAR8_SCIENCE_BUSY_WORK = {
       id: "BW-M05-S03", sectionId: "M05-S03", module: "Data science 1 - part B and depth study",
       title: "Depth-study evidence readiness check", mechanic: "portfolio-plan",
       evidenceDestination: "Printable question, evidence/data, analysis, conclusion, reflection and source record",
-      theoryAnchor: "../theory.html#theory-m05-s03-analysis-and-conclusion",
+      theoryAnchor: "/Year-8-Science-Guided-Course/modules/y8s-m05/#theory-m05-s03-analysis-and-conclusion",
       instructions: "Prepare a method-neutral evidence plan for the five-hour depth-study portfolio. A teacher-approved practical method is not supplied.",
       checklist: ["Question is scientifically investigable", "Evidence or dataset source is identified", "Data representation is planned", "Analysis will address patterns and limitations", "Conclusion will answer the question", "Reflection and source record are included"],
       fields: [
