@@ -334,13 +334,15 @@
     };
     modules.forEach(moduleName => {
       const group = document.createElement("section"); group.className = "picker-module";
+      const moduleNumber = modules.indexOf(moduleName) + 1;
+      group.style.setProperty("--module-image", `url(assets/learning/m${String(moduleNumber).padStart(2, "0")}.png)`);
       const heading = document.createElement("h3"); heading.textContent = moduleName;
       const intro = document.createElement("p"); intro.className = "module-prompt"; intro.textContent = prompts[moduleName] || "Choose a short science challenge.";
       group.append(heading, intro);
       const list = document.createElement("div"); list.className = "picker-list";
-      config.activities.filter(activity => activity.module === moduleName).forEach(activity => {
+      config.activities.filter(activity => activity.module === moduleName).forEach((activity, index) => {
         const button = document.createElement("a"); const id = safeId(activity.id); button.href = `#${id}`; button.className = "activity-choice";
-        button.dataset.target = id; button.innerHTML = `<strong>${activity.title}</strong><small>Open this challenge &rarr;</small>`;
+        button.dataset.target = id; button.innerHTML = `<span class="choice-image tile-${index + 1}" aria-hidden="true"></span><span><strong>${activity.title}</strong><small>Open this challenge &rarr;</small></span>`;
         list.append(button);
       });
       group.append(list); picker.append(group);
