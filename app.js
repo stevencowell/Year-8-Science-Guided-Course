@@ -18,3 +18,35 @@ document.querySelectorAll('[data-student-key]').forEach(input=>{
 });
 
 document.querySelectorAll('[data-print-page]').forEach(button=>button.addEventListener('click',()=>window.print()));
+
+// A help link takes a student to the exact theory they need, then offers one clear way back.
+const helpReturnKey='year-8-science:theory-help-return:v1';
+const showHelpReturn=()=>{
+  const returnId=sessionStorage.getItem(helpReturnKey);
+  const targetId=window.location.hash.slice(1);
+  const target=document.getElementById(targetId);
+  if(!returnId||!target||!targetId.startsWith('theory-')||target.querySelector('.help-return-button')) return;
+  const button=document.createElement('button');
+  button.type='button';
+  button.className='help-return-button';
+  button.textContent='← Return to your question';
+  button.addEventListener('click',()=>{
+    const question=document.getElementById(returnId);
+    sessionStorage.removeItem(helpReturnKey);
+    button.remove();
+    if(question){
+      history.replaceState(null,'','#'+returnId);
+      question.scrollIntoView({behavior:'smooth',block:'start'});
+      question.querySelector('textarea, input, button')?.focus({preventScroll:true});
+    }
+  });
+  target.append(button);
+};
+
+document.querySelectorAll('section[id^="response-"] a[href^="#theory-"]').forEach(link=>link.addEventListener('click',()=>{
+  const response=link.closest('section[id^="response-"]');
+  if(response) sessionStorage.setItem(helpReturnKey,response.id);
+  window.setTimeout(showHelpReturn,0);
+}));
+window.addEventListener('hashchange',showHelpReturn);
+showHelpReturn();
