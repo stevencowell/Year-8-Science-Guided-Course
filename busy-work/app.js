@@ -342,7 +342,7 @@
       const list = document.createElement("div"); list.className = "picker-list";
       config.activities.filter(activity => activity.module === moduleName).forEach((activity, index) => {
         const button = document.createElement("a"); const id = safeId(activity.id); button.href = `#${id}`; button.className = "activity-choice";
-        button.dataset.target = id; button.innerHTML = `<span class="choice-image tile-${index + 1}" aria-hidden="true"></span><span><strong>${activity.title}</strong><small>Open this challenge &rarr;</small></span>`;
+        button.dataset.target = id; button.innerHTML = `<span class="choice-image tile-${index + 1}" aria-hidden="true"></span><span><strong>${activity.title}</strong></span>`;
         list.append(button);
       });
       group.append(list); picker.append(group);
