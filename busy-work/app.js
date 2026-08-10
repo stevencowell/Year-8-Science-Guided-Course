@@ -231,7 +231,7 @@
     card.querySelector(".instructions").textContent = activity.instructions;
     const host = card.querySelector(".activity-body");
 
-    if (activity.mechanic === "periodic-pattern") { const reference=document.createElement("img"); reference.className="periodic-reference"; reference.src="../assets/diagrams/vg-m03-s03-01-first-18-elements.svg"; reference.alt="Reference table of the first 18 elements, arranged by period and group."; host.append(reference); }
+    if (activity.mechanic === "periodic-pattern") host.append(window.SciencePeriodicReference.create());
     if (activity.data && activity.mechanic === "dataset-analysis") renderTable(activity.data, ["Input", "Output"], host);
     if (activity.mechanic === "ecosystem-path") renderPathway(activity, host);
     else if (activity.mechanic === "simulation") renderSimulation(activity, host);
