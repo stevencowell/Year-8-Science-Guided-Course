@@ -1,8 +1,0 @@
-.folio-visual{margin:1rem 0;padding:.7rem;border:1px solid var(--line);border-radius:10px;background:#f9fbfc;overflow:hidden}
-.folio-visual img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:white}
-.folio-visual figcaption{margin-top:.55rem;color:var(--muted);font-size:.9rem}
-.visual-actions{display:flex;gap:.6rem;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:.55rem}
-.open-larger{font-weight:800;color:var(--dark);min-height:44px;display:inline-flex;align-items:center}
-.visual-description{font-size:.9rem;max-width:100%}
-.visual-description summary{cursor:pointer;font-weight:750;min-height:44px;display:flex;align-items:center}
-@media print{.open-larger,.visual-description{display:none!important}.folio-visual{break-inside:avoid}.folio-visual img{max-height:230px}}
