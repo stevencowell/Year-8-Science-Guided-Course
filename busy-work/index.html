@@ -12,34 +12,16 @@
   <header class="site-header">
     <div class="wrap">
       <p class="eyebrow">YEAR 8 SCIENCE · PRACTICE PATHWAY</p>
-      <h1>Do something useful with what you have learned.</h1>
-      <p class="lede">Choose one activity, do one clear job, then check it and move on. Your answers save on this device as you work.</p>
-      <div class="hero-actions"><a class="button" href="#activity-workspace">Start the next activity</a><a class="button secondary" href="../theory.html">Review theory first</a></div>
-      <div class="privacy-note" role="note"><strong>Saved on this device:</strong> this is useful practice evidence, not a cloud submission or a Google Classroom turn-in.</div>
+      <h1>Choose a science challenge.</h1>
+      <p class="lede">Pick a topic that interests you, have a go at one short challenge, then use the feedback to sharpen your thinking.</p>
+      <div class="hero-actions"><a class="button" href="#activity-picker">Choose a challenge</a><a class="button secondary" href="../theory.html">Review theory first</a></div>
+      <div class="privacy-note" role="note"><strong>Your work saves here as you go.</strong> <span id="save-status">You can return to a challenge on this device.</span></div>
     </div>
   </header>
 
   <main class="wrap" id="main">
-    <section class="control-panel" aria-labelledby="record-heading">
-      <div>
-        <h2 id="record-heading">Student record</h2>
-        <label for="student-name">Student name</label>
-        <input id="student-name" autocomplete="name" placeholder="Enter your name">
-      </div>
-      <div class="progress-panel" aria-live="polite">
-        <strong id="progress-text">0 of 15 activities ready</strong>
-        <progress id="progress-bar" max="15" value="0">0 of 15</progress>
-        <span id="save-status">Ready</span>
-      </div>
-      <div class="toolbar" aria-label="Record tools">
-        <button type="button" id="print-record">Print / save PDF</button>
-        <button type="button" id="export-record" class="secondary">Back up answers</button>
-        <label class="button secondary file-button">Restore backup<input id="restore-record" type="file" accept="application/json,.json"></label>
-      </div>
-    </section>
-
     <section class="activity-library" aria-labelledby="library-heading">
-      <div class="library-heading"><div><p class="eyebrow">ACTIVITY LIBRARY</p><h2 id="library-heading">Fifteen science practice activities</h2><p>Each activity opens on its own. Choose a module, then focus on the next useful task.</p></div><p id="library-progress" aria-live="polite"></p></div>
+      <div class="library-heading"><div><p class="eyebrow">PICK A TOPIC</p><h2 id="library-heading">What would you like to explore?</h2><p>Choose a module, then select one practical science challenge. There is no score to chase—just useful practice.</p></div></div>
       <div id="activity-picker" class="activity-picker" aria-label="Choose a science practice activity"></div>
     </section>
     <section id="activity-workspace" class="activity-workspace" aria-live="polite"><div id="activities"></div></section>
@@ -49,10 +31,8 @@
     <article class="activity-card">
       <div class="card-heading">
         <div>
-          <p class="section-code"></p>
           <h2></h2>
         </div>
-        <span class="completion-badge">In progress</span>
       </div>
       <p class="instructions"></p>
       <div class="activity-body"></div>
@@ -62,7 +42,6 @@
         <a class="theory-link is-pending" aria-disabled="true">Theory link pending</a>
       </div>
       <div class="activity-feedback" role="status" aria-live="polite"></div>
-      <p class="evidence-destination"><strong>Evidence destination:</strong> <span></span></p>
     </article>
   </template>
 

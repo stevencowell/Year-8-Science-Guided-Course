@@ -227,10 +227,8 @@
     const card = fragment.querySelector(".activity-card");
     card.dataset.activityId = activity.id;
     card.id = safeId(activity.id);
-    card.querySelector(".section-code").textContent = `${activity.sectionId} · ${activity.id}`;
     card.querySelector("h2").textContent = activity.title;
     card.querySelector(".instructions").textContent = activity.instructions;
-    card.querySelector(".evidence-destination span").textContent = activity.evidenceDestination;
     const host = card.querySelector(".activity-body");
 
     if (activity.data && activity.mechanic === "dataset-analysis") renderTable(activity.data, ["Input", "Output"], host);
@@ -304,7 +302,8 @@
   function refreshCardElement(activity, card) {
     const complete = completionFor(activity, card);
     card.classList.toggle("is-complete", complete);
-    card.querySelector(".completion-badge").textContent = complete ? "Ready" : "In progress";
+    const badge = card.querySelector(".completion-badge");
+    if (badge) badge.textContent = complete ? "Ready" : "In progress";
   }
 
   function updateProgress() {
@@ -312,8 +311,10 @@
       const card = document.querySelector(`[data-activity-id="${activity.id}"]`);
       return card && completionFor(activity, card);
     }).length;
-    document.querySelector("#progress-text").textContent = `${complete} of ${config.activities.length} activities ready`;
-    document.querySelector("#progress-bar").value = complete;
+    const progressText = document.querySelector("#progress-text");
+    const progressBar = document.querySelector("#progress-bar");
+    if (progressText) progressText.textContent = `${complete} of ${config.activities.length} activities ready`;
+    if (progressBar) progressBar.value = complete;
     const libraryProgress = document.querySelector("#library-progress");
     if (libraryProgress) libraryProgress.textContent = `${complete} of ${config.activities.length} activities ready`;
   }
@@ -322,24 +323,39 @@
     activityRoot.replaceChildren();
     const picker = document.querySelector("#activity-picker");
     picker.replaceChildren();
-    let activeId = location.hash.replace("#", "");
-    if (!config.activities.some(activity => safeId(activity.id) === activeId)) activeId = safeId(config.activities[0].id);
+    const activeId = location.hash.replace("#", "");
     const modules = [...new Set(config.activities.map(activity => activity.module))];
+    const prompts = {
+      "Data science 1 - part A": "Ask better questions and make sense of information.",
+      "Living systems": "Explore the systems that keep living things working.",
+      "Periodic table and atomic structure": "Look closely at matter, atoms and patterns.",
+      "Change": "Follow energy, materials and Earth as they change.",
+      "Data science 1 - part B and depth study": "Use models, predictions and evidence like a scientist."
+    };
     modules.forEach(moduleName => {
       const group = document.createElement("section"); group.className = "picker-module";
-      const heading = document.createElement("h3"); heading.textContent = moduleName; group.append(heading);
+      const heading = document.createElement("h3"); heading.textContent = moduleName;
+      const intro = document.createElement("p"); intro.className = "module-prompt"; intro.textContent = prompts[moduleName] || "Choose a short science challenge.";
+      group.append(heading, intro);
       const list = document.createElement("div"); list.className = "picker-list";
       config.activities.filter(activity => activity.module === moduleName).forEach(activity => {
         const button = document.createElement("a"); const id = safeId(activity.id); button.href = `#${id}`; button.className = "activity-choice";
-        button.dataset.target = id; button.innerHTML = `<span>${activity.sectionId}</span><strong>${activity.title}</strong><small>${activity.mechanic.replace(/-/g, " ")}</small>`;
+        button.dataset.target = id; button.innerHTML = `<strong>${activity.title}</strong><small>Open this challenge &rarr;</small>`;
         list.append(button);
       });
       group.append(list); picker.append(group);
     });
-    const workspace = document.createElement("div"); workspace.className = "single-activity";
     const selected = config.activities.find(activity => safeId(activity.id) === activeId);
-    workspace.append(renderActivity(selected)); activityRoot.append(workspace);
-    picker.querySelector(`[data-target="${activeId}"]`)?.classList.add("selected");
+    if (selected) {
+      const workspace = document.createElement("div"); workspace.className = "single-activity";
+      workspace.append(renderActivity(selected)); activityRoot.append(workspace);
+      picker.querySelector(`[data-target="${activeId}"]`)?.classList.add("selected");
+    } else {
+      const prompt = document.createElement("p");
+      prompt.className = "choose-prompt";
+      prompt.textContent = "Choose a challenge above when you are ready.";
+      activityRoot.append(prompt);
+    }
     picker.addEventListener("click", event => { const choice = event.target.closest(".activity-choice"); if (!choice) return; event.preventDefault(); location.hash = choice.dataset.target; renderAll(); document.querySelector("#activity-workspace").scrollIntoView({ behavior: "smooth", block: "start" }); }, { once: true });
     updateProgress();
   }
@@ -352,15 +368,24 @@
     setTimeout(() => URL.revokeObjectURL(link.href), 1000);
   }
 
-  document.querySelector("#student-name").value = state.identity.name || "";
-  document.querySelector("#student-name").addEventListener("input", event => { state.identity.name = event.target.value; queueSave(); });
-  document.querySelector("#print-record").addEventListener("click", () => { saveState(); window.print(); });
-  document.querySelector("#export-record").addEventListener("click", () => {
+  const studentName = document.querySelector("#student-name");
+  if (studentName) {
+    studentName.value = state.identity.name || "";
+    studentName.addEventListener("input", event => { state.identity.name = event.target.value; queueSave(); });
+  }
+
+  const printRecord = document.querySelector("#print-record");
+  if (printRecord) printRecord.addEventListener("click", () => { saveState(); window.print(); });
+
+  const exportRecord = document.querySelector("#export-record");
+  if (exportRecord) exportRecord.addEventListener("click", () => {
     saveState();
     const stamp = new Date().toISOString().slice(0, 10);
     download(`year-8-science-busy-work-${stamp}.json`, JSON.stringify(state, null, 2), "application/json");
   });
-  document.querySelector("#restore-record").addEventListener("change", async event => {
+
+  const restoreRecord = document.querySelector("#restore-record");
+  if (restoreRecord) restoreRecord.addEventListener("change", async event => {
     const file = event.target.files?.[0];
     if (!file) return;
     try {
@@ -368,7 +393,7 @@
       if (restored.buildId !== config.buildId || !restored.activities) throw new Error("This is not a current Year 8 Science Busy Work backup.");
       state = restored;
       localStorage.setItem(config.storageKey, JSON.stringify(state));
-      document.querySelector("#student-name").value = state.identity?.name || "";
+      if (studentName) studentName.value = state.identity?.name || "";
       renderAll();
       saveStatus.textContent = "Backup restored and saved on this device.";
     } catch (error) {
