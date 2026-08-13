@@ -1,0 +1,8 @@
+/* Keep the entry page to the shared course orientation and its actual module pathway. */
+.course-bar,
+.science-hero-image figcaption,
+.save-notice,
+.section.routine,
+.section.destinations {
+  display: none !important;
+}
