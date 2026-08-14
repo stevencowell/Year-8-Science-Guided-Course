@@ -258,3 +258,11 @@ input:focus, textarea:focus, select:focus {
     padding: 20px 17px;
     border-radius: 13px;
   }
+
+/* Keep supporting copy readable on the Science module banner. */
+.page-hero > p:not(.eyebrow) {
+  color: rgba(255, 255, 255, 0.94) !important;
+  font-weight: 500;
+  line-height: 1.65;
+  max-width: 760px;
+}
