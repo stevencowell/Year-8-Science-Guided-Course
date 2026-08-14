@@ -259,6 +259,8 @@ input:focus, textarea:focus, select:focus {
     border-radius: 13px;
   }
 
+}
+
 /* Keep supporting copy readable on the Science module banner. */
 .page-hero > p:not(.eyebrow) {
   color: rgba(255, 255, 255, 0.94) !important;
