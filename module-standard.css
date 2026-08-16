@@ -1,0 +1,76 @@
+:root {
+  --module-max: 1180px;
+  --module-desktop-gutter: 36px;
+  --module-mobile-gutter: 32px;
+  --module-card-gap: 24px;
+}
+
+.theory-page .theory-main .page-hero {
+  display: grid;
+  align-content: center;
+  width: min(var(--module-max), calc(100% - var(--module-desktop-gutter)));
+  max-width: none;
+  min-height: 295px;
+  padding: 48px 0;
+}
+
+.theory-page .theory-main .page-hero h1 {
+  font-size: 76.8px;
+  line-height: 88.32px;
+}
+
+.theory-page .module-layout {
+  display: block;
+  width: min(var(--module-max), calc(100% - var(--module-desktop-gutter)));
+  max-width: none;
+  padding: 72px 0 0;
+}
+
+.theory-page .student-panel {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto auto;
+  gap: var(--module-card-gap);
+  margin-bottom: var(--module-card-gap);
+  padding: 21.6px;
+}
+
+.theory-page .student-panel .button {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.theory-page .theory-module {
+  display: grid;
+  gap: var(--module-card-gap);
+}
+
+.theory-page .theory-section {
+  min-width: 0;
+  margin: 0;
+  padding: 21.6px;
+}
+
+@media (max-width: 680px) {
+  .theory-page .theory-main .page-hero,
+  .theory-page .module-layout {
+    width: min(var(--module-max), calc(100% - var(--module-mobile-gutter)));
+  }
+
+  .theory-page .theory-main .page-hero h1 {
+    font-size: 40px;
+    line-height: 46px;
+  }
+
+  .theory-page .student-panel {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 21px 18px;
+  }
+
+  .theory-page .student-panel .button {
+    width: 100%;
+    white-space: normal;
+  }
+
+  .theory-page .theory-section {
+    padding: 21px 18px;
+  }
+}
