@@ -38,7 +38,7 @@
     { label: "Modules", href: "index.html#modules", current: path.includes("/modules/") },
     { label: "Theory", href: "theory.html", current: path.endsWith("/theory.html") },
     { label: "Video learning", href: "youtube-learning/", current: path.includes("/youtube-learning/") },
-    { label: "Busy Work", href: "busy-work/", current: path.includes("/busy-work/") },
+    { label: "Puzzles", href: "busy-work/", current: path.includes("/busy-work/") },
     { label: "Teacher resources", href: "teacher-resources/program/", current: path.includes("/teacher-resources/") },
     { label: "Main Menu", href: HUB_URL, external: true }
   ];
